@@ -12,7 +12,7 @@ public class Tile {
     }
 
     public static class Bag{
-    Tile Tiles[];
+    Tile Tiles[52];
     Bag(){
 
     }

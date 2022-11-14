@@ -5,10 +5,11 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class Board {
-    private char[][] scrabbleBoard;
+    //
+    private Tile[][] scrabbleBoard;
     private static HashSet<String> dict;
     private static HashMap<String, String> boardScores;
-
+    //ctor
     public Board() {
         this.initBoard();
         this.initBoardScores();
@@ -24,10 +25,10 @@ public class Board {
     }
 
     private void initBoard() {
-        this.scrabbleBoard = new char[15][15];
+        this.scrabbleBoard = new Tile[15][15];
         for (int i=0; i<15; i++) {
             for (int j=0; j<15; j++) {
-                this.scrabbleBoard[i][j] = ' ';
+                this.scrabbleBoard[i][j].set_letter(' ');
             }
         }
     }
