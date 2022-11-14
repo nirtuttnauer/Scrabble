@@ -5,20 +5,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class Board {
-    //
-    private Tile[][] scrabbleBoard;
-    private static HashSet<String> dict;
-    private static HashMap<String, String> boardScores;
-    //ctor
-    public Board() {
-        this.initBoard();
-        this.initBoardScores();
-
-        try { this.initDict();  }
-        catch (FileNotFoundException e) {
-            System.err.println("FileNotFoundException: " + e);
-        }
-    }
 
     public static Board getBoard() {
         return Board;
@@ -43,6 +29,7 @@ public class Board {
 
 
     public boolean boardLegal(Word w0) {
+
     }
 
     public int tryPlaceWord(Word bit) {
