@@ -10,7 +10,7 @@ import static java.lang.Math.abs;
 public class Tile {
     //1. make final
     public final char letter;
-    final private int score;
+    public final int score;
     public final int[] Values = {1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10};
 
     public char getLetter() {
