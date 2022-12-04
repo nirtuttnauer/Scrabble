@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Board {
     private static Board SingleBoard;
     private final Place[][] Places = new Place[15][15];
-    ArrayList<Word> ExistingWords = new ArrayList<Word>();
+    private ArrayList<Word> PlacedWords = new ArrayList<>();
 
 
     //ctor
@@ -84,22 +84,33 @@ public class Board {
 
     public int tryPlaceWord(Word word) {
         if (boardLegal(word) && dictionaryLegal(word)) {
-            PlaceWord(word);
+            word = fullWord(word);
+
             ArrayList<Word> newWords = filterWords(getWords(word));
             int score = getScore(newWords);
+            PlaceWord(word);
             addNewWords(newWords);
             return score;
         }
         return 0;
     }
 
-    private ArrayList<Word> filterWords(ArrayList<Word> words) {
-        for (Word word : words) {
-            if (!dictionaryLegal(word) || SingleBoard.ExistingWords.contains(word)) {
-                words.remove(word);
+    private Word fullWord(Word word) {
+        Tile[] tiles = new Tile[word.getLength()];
+        for (int i = 0; i < word.getLength(); i++) {
+            int x = (word.isVertical()) ? i : 0;
+            int y = (word.isVertical()) ? 0 : i;
+            if (word.getTiles()[i] == null) {
+                tiles[i] = SingleBoard.Places[word.row + x][word.cols + y].tile;
+            } else {
+                tiles[i] = word.getTiles()[i];
             }
-
         }
+        return new Word(tiles, word.row, word.cols, word.isVertical());
+    }
+
+    private ArrayList<Word> filterWords(ArrayList<Word> words) {
+        words.removeIf(word -> !dictionaryLegal(word) || SingleBoard.PlacedWords.contains(word));
         return words;
     }
 
@@ -116,8 +127,108 @@ public class Board {
     private ArrayList<Word> getWords(Word word) {
         ArrayList<Word> newWords = new ArrayList<>();
         newWords.add(word);
-
+        for (int i = 0; i < word.getLength(); i++) {
+            int x = (word.isVertical()) ? i : 0;
+            int y = (word.isVertical()) ? 0 : i;
+            int w = (word.isVertical()) ? 0 : 1;
+            int z = (word.isVertical()) ? 1 : 0;
+            if (SingleBoard.Places[word.row + x + w][word.cols + y + z].tile != null || SingleBoard.Places[word.row + x - w][word.cols + y - z].tile != null) {
+                newWords.add(createWord(word.Tiles[i], word.row + x, word.cols + y, word.isVertical()));
+            }
+        }
         return newWords;
+    }
+
+    private Word createWord(Tile tile, int i, int j, boolean vertical) {
+        ArrayList<Tile> tilesLL = new ArrayList<>();
+        int start = (vertical) ? j : i;
+        int len = 0;
+        int row, cols;
+        if (vertical) {
+            do {
+                j--;
+            } while (SingleBoard.Places[i][j].tile != null);
+            if (start == j) {
+                tilesLL.add(tile);
+                row = i;
+                cols = j;
+                j++;
+            } else {
+                j++;
+                row = i;
+                cols = j;
+            }
+
+
+            while (SingleBoard.Places[i][j].tile != null) {
+                len++;
+                if (start == j) {
+                    tilesLL.add(tile);
+                } else {
+                    tilesLL.add(SingleBoard.Places[i][j].tile);
+                }
+                j++;
+            }
+            if (start == j) {
+                tilesLL.add(tile);
+                j++;
+                len++;
+            }
+            while (SingleBoard.Places[i][j].tile != null) {
+                len++;
+                if (start == j) {
+                    tilesLL.add(tile);
+                } else {
+                    tilesLL.add(SingleBoard.Places[i][j].tile);
+                }
+                j++;
+            }
+        } else {
+            do {
+                i--;
+            } while (SingleBoard.Places[i][j].tile != null);
+            if (start == i) {
+                tilesLL.add(tile);
+                row = i;
+                cols = j;
+                i++;
+            } else {
+                i++;
+                row = i;
+                cols = j;
+            }
+
+
+            while (SingleBoard.Places[i][j].tile != null) {
+                len++;
+                if (start == i)
+                    tilesLL.add(tile);
+                else {
+                    tilesLL.add(SingleBoard.Places[i][j].tile);
+                }
+                i++;
+            }
+            if (start == i) {
+                tilesLL.add(tile);
+                i++;
+                len++;
+            }
+            while (SingleBoard.Places[i][j].tile != null) {
+                len++;
+                if (start == i)
+                    tilesLL.add(tile);
+                else {
+                    tilesLL.add(SingleBoard.Places[i][j].tile);
+                }
+                i++;
+            }
+        }
+
+        Tile[] tiles = new Tile[len];
+        for (int k = 0; k < len; k++) {
+            tiles[k] = tilesLL.get(k);
+        }
+        return new Word(tiles, row, cols, !vertical);
     }
 
 
@@ -131,6 +242,7 @@ public class Board {
 
     private int getScore(ArrayList<Word> words) {
         int wordsSum = 0;
+
         for (Word word : words) {
             int x, y;
             int sum = 0, mul = 1;
@@ -143,70 +255,27 @@ public class Board {
                         x = 0;
                         y = i;
                     }
-                    if (word.Tiles[i] != null) {
-                        if (Places[word.row + x][word.cols + y].isWordBonus) {
-                            mul *= Places[word.row + x][word.cols + y].bonus;
-                            sum += word.Tiles[i].getScore();
-                        } else if (HasBeenUsed(word.row + x, word.cols + y)) {
-                            sum += word.Tiles[i].getScore() * Places[word.row + i][word.cols].bonus;
-                        } else {
-                            sum += word.Tiles[i].getScore();
-                        }
+                    if (isStarNotEmpty() && word.row + x == 7 && word.cols + y == 7) {
+                        sum += word.Tiles[i].getScore();
+                    } else if (Places[word.row + x][word.cols + y].isWordBonus) {
+                        mul *= Places[word.row + x][word.cols + y].bonus;
+                        sum += word.Tiles[i].getScore();
                     } else {
-                        if (Places[word.row + x][word.cols + y].tile != null) {
-                            if (Places[word.row + x][word.cols + y].isWordBonus) {
-                                if (HasBeenUsed(word.row + x, word.cols + y)) {
-                                    mul *= Places[word.row + x][word.cols + y].bonus;
-                                }
-                                sum += Places[word.row + x][word.cols + y].tile.getScore();
-                            } else if (HasBeenUsed(word.row + x, word.cols + y)) {
-                                sum += Places[word.row + x][word.cols + y].tile.getScore() * Places[word.row + x][word.cols + y].bonus;
-                            } else {
-                                sum += Places[word.row + x][word.cols + y].tile.getScore();
-                            }
-                        }
+                        sum += word.Tiles[i].getScore() * Places[word.row + x][word.cols + y].bonus;
                     }
-//                    System.out.println(sum * mul);
+
                 }
-                wordsSum += sum * mul;
+
             }
+            wordsSum += sum * mul;
 
         }
+
+
         return wordsSum;
     }
 
-    private boolean HasBeenUsed(int i, int j) {
-        return SingleBoard.Places[i][j].tile == null;
-    }
-
-    private boolean isWordNextToTile(Word word) {
-        for (int i = 0; i < word.getLength(); i++) {
-
-            if (word.isVertical()) {
-                if (SingleBoard.Places[word.row + i][word.cols + 1].tile != null || SingleBoard.Places[word.row + i][word.cols - 1].tile != null) {
-                    return true;
-                }
-            } else {
-                if (SingleBoard.Places[word.row + 1][word.cols + i].tile != null || SingleBoard.Places[word.row - 1][word.cols + i].tile != null) {
-                    return true;
-                }
-            }
-
-
-        }
-        if (word.isVertical()) {
-            if (SingleBoard.Places[word.row - 1][word.cols].tile != null || SingleBoard.Places[word.row + word.getLength() - 1][word.cols].tile != null) {
-                return true;
-            }
-        } else {
-            if (SingleBoard.Places[word.row][word.cols - 1].tile != null || SingleBoard.Places[word.row][word.cols + word.getLength() - 1].tile != null) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private boolean isPlaceFree(int i, int j) {
+    private boolean isBonusFree(int i, int j) {
         return SingleBoard.Places[i][j].tile == null;
     }
 
@@ -223,11 +292,7 @@ public class Board {
     }
 
     private void addNewWords(ArrayList<Word> words) {
-        SingleBoard.ExistingWords.addAll(words);
-    }
-
-    private boolean isConverging(Word w1, Word w2) {
-        return false;
+        SingleBoard.PlacedWords.addAll(words);
     }
 
     public void printBoard() {

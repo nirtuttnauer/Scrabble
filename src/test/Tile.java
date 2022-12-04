@@ -8,11 +8,18 @@ import java.util.Random;
 import static java.lang.Math.abs;
 
 public class Tile {
-    //1. make final
     public final char letter;
     public final int score;
     public final int[] Values = {1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10};
 
+    //ctor
+    private Tile(char letter) {
+        this.letter = letter;
+        this.score = getPoints(letter);
+
+    }
+
+    //getters
     public char getLetter() {
         return letter;
     }
@@ -23,14 +30,6 @@ public class Tile {
 
     public int[] getValues() {
         return Values;
-    }
-
-
-    //add to constructor
-    private Tile(char letter) {
-        this.letter = letter;
-        this.score = getPoints(letter);
-
     }
 
     int getPoints(char L) {
@@ -56,13 +55,16 @@ public class Tile {
         private final int[] amountsMax = {9, 2, 2, 4, 12, 2, 3, 2, 9, 1, 1, 4, 2, 6, 8, 2, 1, 6, 4, 6, 4, 2, 2, 1, 2, 1};
         private int[] amounts = new int[26];
         private Tile[] Tiles = new Tile[26];
-
-        public static Bag getSingleBag() {
-            return SingleBag;
+        //ctor
+        private Bag() {
+            System.arraycopy(amountsMax, 0, amounts, 0, amountsMax.length);
         }
-
-        public static void setSingleBag(Bag singleBag) {
-            SingleBag = singleBag;
+        //getters
+        public static Bag getBag() {
+            if (SingleBag == null) {
+                SingleBag = new Bag();
+            }
+            return SingleBag;
         }
 
         public int[] getAmountsMax() {
@@ -85,26 +87,13 @@ public class Tile {
             Tiles = tiles;
         }
 
-        int size() {
+        private int size() {
             int sum = 0;
             for (int amount : amounts) {
                 sum += amount;
             }
             return sum;
         }
-
-
-        private Bag() {
-            System.arraycopy(amountsMax, 0, amounts, 0, amountsMax.length);
-        }
-
-        public static Bag getBag() {
-            if (SingleBag == null) {
-                SingleBag = new Bag();
-            }
-            return SingleBag;
-        }
-
 
         public int[] getQuantities() {
             int[] a = new int[26];
