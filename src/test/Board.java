@@ -18,7 +18,7 @@ public class Board {
 
     //inits for the ctor
     private int initBonus(int i, int j) {
-        int[][] matrix = {
+        final int[][] matrix = {
                 {3, 1, 1, 2, 1, 1, 1, 3, 1, 1, 1, 2, 1, 1, 3},
                 {1, 2, 1, 1, 1, 3, 1, 1, 1, 3, 1, 1, 1, 2, 1},
                 {1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 1, 1, 2, 1, 1},
@@ -38,7 +38,7 @@ public class Board {
     }
 
     private boolean initIsWord(int i, int j) {
-        boolean[][] mat = {
+        final boolean[][] mat = {
                 {true, false, false, false, false, false, false, true, false, false, false, false, false, false, true},
                 {false, true, false, false, false, false, false, false, false, false, false, false, false, true, false},
                 {false, false, true, false, false, false, false, false, false, false, false, false, true, false, false},
@@ -242,7 +242,6 @@ public class Board {
 
     private int getScore(ArrayList<Word> words) {
         int wordsSum = 0;
-
         for (Word word : words) {
             int x, y;
             int sum = 0, mul = 1;
