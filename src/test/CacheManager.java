@@ -4,7 +4,7 @@ package test;
 import java.util.HashSet;
 
 public class CacheManager {
-    int size;
+    final int size;
     CacheReplacementPolicy cachePolicy;
     HashSet<String> cache;
 

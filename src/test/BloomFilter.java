@@ -49,6 +49,7 @@ public class BloomFilter {
         return Objects.equals(bits, that.bits) && Objects.equals(md, that.md);
     }
 
+
     @Override
     public String toString() {
         StringBuilder s = new StringBuilder();
