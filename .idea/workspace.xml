@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8794e2cf-7e6f-4865-b587-49337df11e75" name="Changes" comment="created methods for MainTrain">
+      <change afterPath="$PROJECT_DIR$/src/3.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/BookScrabbleHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/ClientHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/DictionaryManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/MyServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ED1PTM/test/BloomFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ED1PTM/test/BloomFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ED1PTM/test/CacheManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ED1PTM/test/CacheManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ED1PTM/test/MainTrain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ED1PTM/test/MainTrain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/BloomFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/BloomFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/CacheManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/CacheManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/MainTrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/MainTrain.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2HPWtlVinHewMQ3FOALkH81pLth" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/test" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="MainTrain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.MainTrain" />
+      <module name="ED1PTM" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainTrain" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8794e2cf-7e6f-4865-b587-49337df11e75" name="Changes" comment="" />
+      <created>1668187417893</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1668187417893</updated>
+      <workItem from="1668187419041" duration="4259000" />
+      <workItem from="1668414552505" duration="7772000" />
+      <workItem from="1668441670419" duration="89000" />
+      <workItem from="1668442195530" duration="1821000" />
+      <workItem from="1668604308256" duration="9801000" />
+      <workItem from="1668690811114" duration="650000" />
+      <workItem from="1668702727152" duration="1160000" />
+      <workItem from="1668794087402" duration="2011000" />
+      <workItem from="1669026600600" duration="318000" />
+      <workItem from="1669028213045" duration="410000" />
+      <workItem from="1669030726435" duration="11217000" />
+      <workItem from="1669196832426" duration="987000" />
+      <workItem from="1669226100073" duration="1600000" />
+      <workItem from="1669297165480" duration="3433000" />
+      <workItem from="1669378307861" duration="3574000" />
+      <workItem from="1669460858826" duration="19481000" />
+      <workItem from="1669569096989" duration="2990000" />
+      <workItem from="1669573944199" duration="3614000" />
+      <workItem from="1669738424033" duration="34696000" />
+      <workItem from="1670110007227" duration="527000" />
+      <workItem from="1670147948212" duration="52000" />
+      <workItem from="1670148008791" duration="17894000" />
+      <workItem from="1670246233828" duration="1800000" />
+      <workItem from="1670415266376" duration="2574000" />
+      <workItem from="1670835708747" duration="208000" />
+      <workItem from="1670835977713" duration="5069000" />
+      <workItem from="1671013747728" duration="18100000" />
+      <workItem from="1671305799284" duration="46000" />
+      <workItem from="1671305855767" duration="12488000" />
+      <workItem from="1671706910260" duration="437000" />
+      <workItem from="1671707396309" duration="192000" />
+      <workItem from="1671715194113" duration="5741000" />
+      <workItem from="1671994592297" duration="725000" />
+      <workItem from="1672143356042" duration="365000" />
+      <workItem from="1672143765117" duration="1836000" />
+      <workItem from="1672182741424" duration="585000" />
+      <workItem from="1673197763387" duration="737000" />
+      <workItem from="1673232244381" duration="3000" />
+      <workItem from="1673723487483" duration="1873000" />
+      <workItem from="1673791901534" duration="1151000" />
+      <workItem from="1673871470383" duration="1125000" />
+      <workItem from="1673878016576" duration="454000" />
+      <workItem from="1673878489607" duration="1880000" />
+      <workItem from="1673954547895" duration="2026000" />
+      <workItem from="1673984551288" duration="7016000" />
+    </task>
+    <task id="LOCAL-00001" summary="created methods for MainTrain">
+      <created>1668416796952</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1668416796952</updated>
+    </task>
+    <task id="LOCAL-00002" summary="created methods for MainTrain">
+      <created>1668418858285</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1668418858285</updated>
+    </task>
+    <task id="LOCAL-00003" summary="created methods for MainTrain">
+      <created>1668422150065</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1668422150065</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="created methods for MainTrain" />
+    <option name="LAST_COMMIT_MESSAGE" value="created methods for MainTrain" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/Board.java</url>
+          <line>243</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/MainTrain.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="test.Word" memberName="Tiles" />
+        <PinnedItemInfo parentTag="test.Board" memberName="ExistingWords" />
+        <PinnedItemInfo parentTag="test.LFU" memberName="words" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
